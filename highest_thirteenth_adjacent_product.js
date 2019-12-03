@@ -22,6 +22,7 @@ let str = `73167176531330624919225119674426574742355349194934
 numbers = str.split("").map(num => +num);
 
 let highest = 0;
+console.log(highest);
 
 for (let i = 0; i <= numbers.length - 13; i++) {
     let sliced = numbers.slice(i,i+13);

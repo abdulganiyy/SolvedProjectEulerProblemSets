@@ -1,0 +1,34 @@
+function sumPrimes(n){
+     
+    // create a list of length n and fill it with true values
+    let arr = new Array(n).fill(true);
+     
+    // first prime number 
+    let p = 2 ;
+    
+    // mark all multiples starting from first prime of 2;
+    while ( Math.pow(p,2) <= n){
+        if(arr[p]){
+            for(let i = Math.pow(p,2); i < n; i += p  ) {
+                arr[i] = false ;
+            }
+        }
+
+        p++;
+    }
+
+    // create a list of unmarked indexes;
+    let primes = [];
+
+    for(let j = 2; j < n; j++){
+        if(arr[j]) {
+            primes.push(j)
+        }
+    }
+
+
+    // find the sum of values in the primes list
+    return primes.reduce((prev,curr) => prev += curr);
+}
+
+console.log(sumPrimes(2e6));
